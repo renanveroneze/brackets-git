@@ -302,8 +302,9 @@ define(function (require, exports, module) {
         },
 
         gitPush: function (remote) {
+            branch = this.getBranchName();
             remote = remote || "";
-            return this.executeCommand(this._git + " push " + remote + " --porcelain");
+            return this.executeCommand(this._git + " push " + remote + " " + branch + " --porcelain");
         },
 
         gitPushUpstream: function (upstream, branch) {
